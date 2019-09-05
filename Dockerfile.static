@@ -15,7 +15,7 @@ COPY ./ /conteco/git-repository/
 ##### END image/Dockerfile/conteco #####
 
 ##### BEGIN image/Dockerfile/build-instructions #####
-ENV INFOMETIS_CONTAINERENTRYPOINT "/etc/confluent/docker/run"
+ENV CONTECO_ENTRYPOINT "/etc/confluent/docker/run"
 # config changes not being copied over for the moment - prefer the output-to-JSON override
 # COPY ./conteco/zookeeper/base/etc/confluent/docker/* /etc/confluent/docker/
 ##### END image/Dockerfile/build-instructions #####
