@@ -13,3 +13,6 @@ Custom implementation to extract LEVEL and MESSAGE from non-JSON log output.
 
 Modification of `log4j.properties.template` and `tools-log4j.properties.template` files to set JSON output.
 
+## Tags
+
+* 5.1.2  
