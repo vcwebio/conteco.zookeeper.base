@@ -15,4 +15,5 @@ Modification of `log4j.properties.template` and `tools-log4j.properties.template
 
 ## Tags
 
+* 5.2.3 (latest)  
 * 5.1.2  

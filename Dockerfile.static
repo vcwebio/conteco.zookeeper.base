@@ -1,6 +1,6 @@
 ##### BEGIN image.base/Dockerfile/image-header #####
 FROM vcwebio/conteco.image.wrapper AS wrapper
-FROM vcwebio/conteco.external.zookeeper:5.1.2 AS base
+FROM vcwebio/conteco.external.zookeeper:5.2.3 AS base
 ##### END image.base/Dockerfile/image-header #####
 
 ##### BEGIN image.base/Dockerfile/conteco #####
@@ -25,16 +25,16 @@ ENV CONTECO_REALM="vcwebio" \
     CONTECO_ECOSYSTEM="conteco" \
     CONTECO_TYPE="zookeeper" \
     CONTECO_NAME="base" \
-    CONTECO_TAG="5.1.2" \
-    CONTECO_BASE="external.zookeeper:5.1.2" \
+    CONTECO_TAG="5.2.3" \
+    CONTECO_BASE="external.zookeeper:5.2.3" \
     CONTECO_BUILD="image-base"
 LABEL io.vcweb.schema-version="1.0" \
       io.vcweb.realm="vcwebio" \
       io.vcweb.ecosystem="conteco" \
       io.vcweb.type="zookeeper" \
       io.vcweb.name="base" \
-      io.vcweb.tag="5.1.2" \
-      io.vcweb.base="external.zookeeper:5.1.2" \
+      io.vcweb.tag="5.2.3" \
+      io.vcweb.base="external.zookeeper:5.2.3" \
       io.vcweb.build="image-base" \
       io.vcweb.label="ContEco zookeeper.base" \
       io.vcweb.description="The ContEco Confluent Zookeeper base image." \
