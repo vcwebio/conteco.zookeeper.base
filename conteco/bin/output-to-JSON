@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+# the default is to return the message as is
+# each container type instance can implement its own if required
+stream=$1
+INPUT=$2
+
+if [[ "$INPUT" != "{"* ]] ; then
+
+	if [[ "$INPUT" == "["* ]] ; then
+
+		LEVEL=$(echo $INPUT | cut -d ' ' -f3 )
+		MESSAGE=$(echo $INPUT | cut -d ' ' -f4- | jq -aR .)
+
+		printf '{ "source": "logger", "level": "%s", "message":%s }' "$LEVEL" "$MESSAGE"
+
+	else
+
+		LEVEL="INFO"
+		MESSAGE=$(echo $INPUT | jq -aR .)
+
+		printf '{ "source": "logger", "level": "%s", "message":%s }' "$LEVEL" "$MESSAGE"
+	
+	fi
+else 
+
+	printf "%s" "$INPUT"
+
+fi
+
+# [2019-06-29 16:33:46,294] INFO Processing mntr command from /10.0.1.157:36482 (org.apache.zookeeper.server.NIOServerCnxn)

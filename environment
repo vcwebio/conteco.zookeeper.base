@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+export CONTECO_LABEL="ContEco zookeeper.base"
+export CONTECO_DESCRIPTION="The ContEco Confluent Zookeeper base image."
+
+export CONTECO_TYPE="zookeeper"
+export CONTECO_NAME="base"
+export CONTECO_TAG="v1.0.0"
+
+export CONTECO_BASE="external.zookeeper"
+export CONTECO_BUILD="image-base"

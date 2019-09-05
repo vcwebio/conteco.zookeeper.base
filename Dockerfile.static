@@ -1,0 +1,42 @@
+##### BEGIN image.base/Dockerfile/image-header #####
+FROM vcwebio/conteco.image.wrapper AS wrapper
+FROM vcwebio/conteco.external.zookeeper AS base
+##### END image.base/Dockerfile/image-header #####
+
+##### BEGIN image.base/Dockerfile/conteco #####
+COPY --from=wrapper /conteco/ /conteco/
+ENTRYPOINT ["/conteco/bin/image/wrapper/entrypoint"]
+##### END image.base/Dockerfile/conteco #####
+
+##### BEGIN image/Dockerfile/conteco #####
+COPY ./conteco/ /conteco/
+RUN chmod -R +x /conteco/bin && rm -rf /conteco/git-repository/*
+COPY ./ /conteco/git-repository/
+##### END image/Dockerfile/conteco #####
+
+##### BEGIN image/Dockerfile/build-instructions #####
+ENV INFOMETIS_CONTAINERENTRYPOINT "/etc/confluent/docker/run"
+# config changes not being copied over for the moment - prefer the output-to-JSON override
+# COPY ./conteco/zookeeper/base/etc/confluent/docker/* /etc/confluent/docker/
+##### END image/Dockerfile/build-instructions #####
+
+##### BEGIN image.base/Dockerfile/env-labels-footer #####
+ENV CONTECO_REALM="vcwebio" \
+    CONTECO_ECOSYSTEM="conteco" \
+    CONTECO_TYPE="zookeeper" \
+    CONTECO_NAME="base" \
+    CONTECO_TAG="v1.0.0" \
+    CONTECO_BASE="external.zookeeper" \
+    CONTECO_BUILD="image-base"
+LABEL io.vcweb.schema-version="1.0" \
+      io.vcweb.realm="vcwebio" \
+      io.vcweb.ecosystem="conteco" \
+      io.vcweb.type="zookeeper" \
+      io.vcweb.name="base" \
+      io.vcweb.tag="v1.0.0" \
+      io.vcweb.base="external.zookeeper" \
+      io.vcweb.build="image-base" \
+      io.vcweb.label="ContEco zookeeper.base" \
+      io.vcweb.description="The ContEco Confluent Zookeeper base image." \
+      io.vcweb.docker.cmd.help="docker run vcwebio/conteco.zookeeper.base --help" 
+##### END image.base/Dockerfile/env-labels-footer #####
