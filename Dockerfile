@@ -1,6 +1,6 @@
 ##### BEGIN image.base/Dockerfile/image-header #####
-FROM $CONTECO_REALM/$CONTECO_ECOSYSTEM.image.wrapper AS wrapper
-FROM $CONTECO_REALM/$CONTECO_ECOSYSTEM.$CONTECO_BASE AS base
+FROM $CONTECO_REGISTRY$CONTECO_REALM/$CONTECO_ECOSYSTEM.image.wrapper AS wrapper
+FROM $CONTECO_REGISTRY$CONTECO_REALM/$CONTECO_ECOSYSTEM.$CONTECO_BASE AS base
 ##### END image.base/Dockerfile/image-header #####
 
 ##### BEGIN image.base/Dockerfile/conteco #####
@@ -17,7 +17,7 @@ COPY ./ /conteco/repo/
 ##### BEGIN image/Dockerfile/build-instructions #####
 ENV CONTECO_ENTRYPOINT "/etc/confluent/docker/run"
 # config changes not being copied over for the moment - prefer the output-to-JSON override
-# COPY ./conteco/zookeeper/base/etc/confluent/docker/* /etc/confluent/docker/
+# COPY ./conteco/assets/zookeeper/base/etc/confluent/docker/* /etc/confluent/docker/
 ##### END image/Dockerfile/build-instructions #####
 
 ##### BEGIN image.base/Dockerfile/env-labels-footer #####
