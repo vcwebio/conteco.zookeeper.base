@@ -1,0 +1,18 @@
+---
+version: '3'
+services:
+
+# START SERVICE zookeeper.base
+  zookeeper:
+    image: ${CONTECO_REGISTRY}${CONTECO_REALM}/${CONTECO_ECOSYSTEM}.zookeeper.base:5.2.3
+    environment: ['ZOOKEEPER_CLIENT_PORT=2181','ZOOKEEPER_TICK_TIME=2000'] 
+    command: [${CONTECO_DC_ZOOKEEPER_COMMAND}]
+    volumes: [${CONTECO_DC_ZOOKEEPER_VOLUMES}]
+    ports: [${CONTECO_DC_ZOOKEEPER_PORTS}]
+    networks: [${CONTECO_DC_ZOOKEEPER_NETWORKS}]
+    deploy: {${CONTECO_DC_ZOOKEEPER_DEPLOY}}
+# END SERVICE zookeeper.base
+
+networks:
+  ${CONTECO_DC_ZOOKEEPER_NETWORKS}:
+    external: true

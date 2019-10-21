@@ -17,7 +17,7 @@ COPY ./ /conteco/repo/
 ##### BEGIN image/Dockerfile/build-instructions #####
 ENV CONTECO_ENTRYPOINT "/etc/confluent/docker/run"
 # config changes not being copied over for the moment - prefer the output-to-JSON override
-# COPY ./conteco/zookeeper/base/etc/confluent/docker/* /etc/confluent/docker/
+# COPY ./conteco/assets/zookeeper/base/etc/confluent/docker/* /etc/confluent/docker/
 ##### END image/Dockerfile/build-instructions #####
 
 ##### BEGIN image.base/Dockerfile/env-labels-footer #####
