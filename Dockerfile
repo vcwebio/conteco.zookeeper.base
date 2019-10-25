@@ -10,7 +10,7 @@ ENTRYPOINT ["/conteco/bin/image/wrapper/entrypoint"]
 
 ##### BEGIN image/Dockerfile/conteco #####
 COPY ./conteco/ /conteco/
-RUN chmod -R +x /conteco/bin && rm -rf /conteco/repo/*
+RUN chmod -R +x /conteco/bin && rm -rf /conteco/repo
 COPY ./ /conteco/repo/
 ##### END image/Dockerfile/conteco #####
 
