@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-(
-    . executionplane-invoke "$0 $@"
-	if [[ "$1" == "all" ]] ; then
-		shift
-	fi
-    deploy image $@
-    executionplane-complete
-)
