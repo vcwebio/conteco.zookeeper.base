@@ -36,7 +36,7 @@ LABEL io.vcweb.schema-version="1.0" \
       io.vcweb.tag="5.3.1" \
       io.vcweb.base="external.zookeeper:5.3.1" \
       io.vcweb.build="image-base" \
-      io.vcweb.label="ContEco zookeeper.base" \
-      io.vcweb.description="The ContEco Confluent Zookeeper base image." \
+      io.vcweb.label="zookeeper.base - ContEco" \
+      io.vcweb.description="Confluent Zookeeper base image, using default configuration." \
       io.vcweb.docker.cmd.help="docker run vcwebio/conteco.zookeeper.base --help" 
 ##### END image.base/Dockerfile/env-labels-footer #####
