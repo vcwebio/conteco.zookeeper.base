@@ -1,19 +1,11 @@
-# The Conteco zookeeper.base Image
+# `zookeeper.base` - ContEco
 
-The Confluent Zookeeper base image.
+Confluent Zookeeper base image, using default configuration.
 
-## Modifications
+## Configuration Changes
 
-### JSON Output
-
-`output-to-JSON`  
-Custom implementation to extract LEVEL and MESSAGE from non-JSON log output.
-
-### Configuration
-
-Modification of `log4j.properties.template` and `tools-log4j.properties.template` files to set JSON output.
+None.
 
 ## Tags
 
-* 5.2.3 (latest)  
-* 5.1.2  
+* 5.2.3 (current)  
