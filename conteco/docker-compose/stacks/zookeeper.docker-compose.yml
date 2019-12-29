@@ -1,0 +1,26 @@
+---
+version: '3'
+services:
+
+# START SERVICE zookeeper.base
+  zookeeper:
+    image: ${CONTECO_REGISTRY}${CONTECO_REALM}/${CONTECO_ECOSYSTEM}.zookeeper.base:5.3.1
+    environment: ['ZOOKEEPER_CLIENT_PORT=2181','ZOOKEEPER_TICK_TIME=2000']
+    command: []
+    volumes: [${CONTECO_DC_ZOOKEEPER_VOLUMES}]
+    ports: []
+    networks: [${CONTECO_TYPE}_overlay]
+    deploy:
+      mode: replicated
+      resources:
+        limits:
+          cpus: '${CONTECO_DC_ZOOKEEPER_DEPLOY_RESOURCES_LIMITS_CPUS}'
+          memory: '${CONTECO_DC_ZOOKEEPER_DEPLOY_RESOURCES_LIMITS_MEMORY}'
+        reservations:
+          cpus: '${CONTECO_DC_ZOOKEEPER_DEPLOY_RESOURCES_RESERVATIONS_CPUS}'
+          memory: '${CONTECO_DC_ZOOKEEPER_DEPLOY_RESOURCES_RESERVATIONS_MEMORY}'
+      labels: [${CONTECO_DC_ZOOKEEPER_DEPLOY_LABELS}]
+# END SERVICE zookeeper.base
+
+volumes: {${CONTECO_DC_GLOBAL_VOLUMES}}
+networks: {${CONTECO_TYPE}_overlay: { external: true }}
