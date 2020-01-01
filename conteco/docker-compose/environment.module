@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
 # START CONFIGURATION
-export CONTECO_DC_GLOBAL_STACKS='zookeeper.base'
-export CONTECO_DC_GLOBAL_STACKNAMES='zookeeper'
-export CONTECO_DC_GLOBAL_VOLUME_LIST='zookeeper_volume'
+export CONTECO_DC_GLOBAL_STACKS="zookeeper.base"
+export CONTECO_DC_GLOBAL_STACKNAMES="zookeeper"
+export CONTECO_DC_GLOBAL_BOOTSTACKS=""
+export CONTECO_DC_GLOBAL_RUNSTACKS=""
+export CONTECO_DC_GLOBAL_VOLUME_LIST="zookeeper_volume"
 # END CONFIGURATION
 
 # START OTHER VARIABLES
