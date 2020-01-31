@@ -4,7 +4,7 @@ services:
 
 # START SERVICE zookeeper.base
   zookeeper:
-    image: ${CONTECO_REGISTRY}${CONTECO_REALM}/conteco.zookeeper.base:5.3.1
+    image: ${CONTECO_REGISTRY}${CONTECO_REALM_RUNTIME}/conteco.zookeeper.base:5.3.1
     environment: ['ZOOKEEPER_CLIENT_PORT=2181','ZOOKEEPER_TICK_TIME=2000']
     command: []
     volumes: ['${CONTECO_TYPE}_conteco_dc_zookeeper_volume:/var/lib/zookeeper/data']
