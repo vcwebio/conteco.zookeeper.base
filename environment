@@ -5,7 +5,7 @@ export CONTECO_DESCRIPTION="Confluent Zookeeper base image, using default config
 
 export CONTECO_TYPE="zookeeper"
 export CONTECO_NAME="base"
-export CONTECO_TAG="5.3.1"
+export CONTECO_TAG="5.4.0"
 
-export CONTECO_BASE="external.zookeeper:5.3.1"
+export CONTECO_BASE="external.zookeeper:5.4.0"
 export CONTECO_BUILD="image-base"
