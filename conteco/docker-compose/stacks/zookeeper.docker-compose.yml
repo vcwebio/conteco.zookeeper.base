@@ -4,12 +4,12 @@ services:
 
 # START SERVICE zookeeper.base
   zookeeper:
-    image: ${CONTECO_REGISTRY}${CONTECO_REALM_RUNTIME}/conteco.zookeeper.base:5.3.1
+    image: ${CONTECO_REGISTRY}${CONTECO_REALM}/${CONTECO_ECOSYSTEM}.zookeeper.base:5.4.0
     environment: ['ZOOKEEPER_CLIENT_PORT=2181','ZOOKEEPER_TICK_TIME=2000']
     command: []
-    volumes: ['${CONTECO_TYPE}_conteco_dc_zookeeper_volume:/var/lib/zookeeper/data']
+    volumes: ['${CONTECO_STACKPREFIX}_zookeeper_volume:/var/lib/zookeeper/data']
     ports: []
-    networks: [${CONTECO_TYPE}_overlay]
+    networks: [${CONTECO_NETWORKLOCAL}_overlay]
     deploy:
       mode: replicated
       resources:
@@ -22,5 +22,5 @@ services:
       labels: [${CONTECO_DC_ZOOKEEPER_DEPLOY_LABELS}]
 # END SERVICE zookeeper.base
 
-volumes: {${CONTECO_TYPE}_conteco_dc_zookeeper_volume: { external: true }}
-networks: {${CONTECO_TYPE}_overlay: { external: true }}
+volumes: {${CONTECO_STACKPREFIX}_zookeeper_volume: { external: true }}
+networks: {${CONTECO_NETWORKLOCAL}_overlay: { external: true }}
