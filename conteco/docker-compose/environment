@@ -6,7 +6,7 @@ export CONTECO_DC_GLOBAL_STACKS='zookeeper.base'
 export CONTECO_DC_GLOBAL_STACKNAMES="conteco_dc_zookeeper"
 export CONTECO_DC_GLOBAL_BOOTSTACKS="conteco_dc_zookeeper"
 export CONTECO_DC_GLOBAL_RUNSTACKS=""
-export CONTECO_DC_GLOBAL_VOLUME_LIST="${DOLLAR}{CONTECO_STACKPREFIX}_zookeeper_volume"
+export CONTECO_DC_GLOBAL_VOLUME_LIST="${DOLLAR}{CONTECO_STACKPREFIX}_zookeeper_secrets_volume,${DOLLAR}{CONTECO_STACKPREFIX}_zookeeper_data_volume,${DOLLAR}{CONTECO_STACKPREFIX}_zookeeper_log_volume"
 # END CONFIGURATION
 
 # START GLOBAL SETTINGS
@@ -16,10 +16,10 @@ export CONTECO_DC_GLOBAL_IMAGE_NAME="${CONTECO_TYPE}.${CONTECO_NAME}:${CONTECO_T
 export CONTECO_DC_ZOOKEEPER_ENVIRONMENT="'ZOOKEEPER_CLIENT_PORT=2181','ZOOKEEPER_TICK_TIME=2000'"
 export CONTECO_DC_ZOOKEEPER_COMMAND=
 export CONTECO_DC_ZOOKEEPER_PORTS=
-export CONTECO_DC_ZOOKEEPER_VOLUMES="'${DOLLAR}{CONTECO_STACKPREFIX}_zookeeper_volume:/var/lib/zookeeper/data'"
+export CONTECO_DC_ZOOKEEPER_VOLUMES="'${DOLLAR}{CONTECO_STACKPREFIX}_zookeeper_secrets_volume:/etc/zookeeper/secrets','${DOLLAR}{CONTECO_STACKPREFIX}_zookeeper_data_volume:/var/lib/zookeeper/data','${DOLLAR}{CONTECO_STACKPREFIX}_zookeeper_log_volume:/var/lib/zookeeper/log'"
 export CONTECO_DC_ZOOKEEPER_NETWORKS="${DOLLAR}{CONTECO_NETWORKLOCAL}_overlay"
 export CONTECO_DC_ZOOKEEPER_DEPLOY_MODE="replicated"
-export CONTECO_DC_GLOBAL_VOLUMES="${DOLLAR}{CONTECO_STACKPREFIX}_zookeeper_volume: { external: true }"
+export CONTECO_DC_GLOBAL_VOLUMES="${DOLLAR}{CONTECO_STACKPREFIX}_zookeeper_secrets_volume: { external: true },${DOLLAR}{CONTECO_STACKPREFIX}_zookeeper_data_volume: { external: true },${DOLLAR}{CONTECO_STACKPREFIX}_zookeeper_log_volume: { external: true }"
 export CONTECO_DC_GLOBAL_NETWORKS="${DOLLAR}{CONTECO_NETWORKLOCAL}_overlay: { external: true }"
 # END GLOBAL SETTINGS
 
