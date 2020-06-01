@@ -1,5 +1,5 @@
 
-log4j.rootLogger={{ env["ZOOKEEPER_LOG4J_ROOT_LOGLEVEL"] | default('INFO') }}, stdout
+log4j.rootLogger={{ env["ZOOKEEPER_LOG4J_ROOT_LOGLEVEL"] | default('WARN') }}, stdout
 
 log4j.appender.stdout=org.apache.log4j.ConsoleAppender
 log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
