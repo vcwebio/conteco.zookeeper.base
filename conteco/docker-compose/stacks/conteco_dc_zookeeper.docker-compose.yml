@@ -12,7 +12,7 @@ services:
     networks: [${CONTECO_NETWORKLOCAL}_overlay]
     deploy:
       mode: replicated
-      replicas: ${CONTECO_DC_ZOOKEEPER_DEPLOY_REPLICAS}
+      ${CONTECO_DC_ZOOKEEPER_DEPLOY_MODE_REPLICATED_REPLICAS}
       resources:
         limits:
           cpus: '${CONTECO_DC_ZOOKEEPER_DEPLOY_RESOURCES_LIMITS_CPUS}'
