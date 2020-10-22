@@ -1,22 +1,12 @@
 ##### BEGIN image.base/Dockerfile/image-header #####
-FROM $CONTECO_REGISTRY$CONTECO_REALM_RUNTIME/$CONTECO_ECOSYSTEM_RUNTIME.image.wrapper AS wrapper
-FROM $CONTECO_REGISTRY$CONTECO_REALM_RUNTIME/$CONTECO_ECOSYSTEM_RUNTIME.$CONTECO_BASE AS base
+FROM $CONTECO_REGISTRY$CONTECO_REALM_RUNTIME/$CONTECO_ECOSYSTEM_RUNTIME.image.wrapper AS base
 ##### END image.base/Dockerfile/image-header #####
-
-##### BEGIN image.base/Dockerfile/conteco #####
-COPY --from=wrapper /conteco/ /conteco/
-ENTRYPOINT ["/conteco/bin/image/wrapper/entrypoint"]
-##### END image.base/Dockerfile/conteco #####
 
 ##### BEGIN image/Dockerfile/conteco #####
 COPY ./conteco/ /conteco/
 RUN chmod -R +x /conteco/bin && rm -rf /conteco/repo
 COPY ./ /conteco/repo/
 ##### END image/Dockerfile/conteco #####
-
-##### BEGIN image/Dockerfile/build-instructions #####
-ENV CONTECO_ENTRYPOINT "/etc/confluent/docker/run"
-##### END image/Dockerfile/build-instructions #####
 
 ##### BEGIN image.base/Dockerfile/env-labels-footer #####
 ENV CONTECO_REALM="$CONTECO_REALM_RUNTIME" \
