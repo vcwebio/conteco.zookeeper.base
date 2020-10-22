@@ -16,7 +16,6 @@ COPY ./ /conteco/repo/
 
 ##### BEGIN image/Dockerfile/build-instructions #####
 ENV CONTECO_ENTRYPOINT "/etc/confluent/docker/run"
-COPY ./conteco/configs/etc/confluent/docker/* /etc/confluent/docker/
 ##### END image/Dockerfile/build-instructions #####
 
 ##### BEGIN image.base/Dockerfile/env-labels-footer #####

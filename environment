@@ -7,5 +7,6 @@ export CONTECO_TYPE="zookeeper"
 export CONTECO_NAME="base"
 export CONTECO_TAG="6.0.0"
 
-export CONTECO_BASE="external.zookeeper:6.0.0"
 export CONTECO_BUILD="image-base"
+
+export CONTECO_EXTERNAL_IMAGE_NAME="confluentinc/cp-zookeeper:6.0.0"

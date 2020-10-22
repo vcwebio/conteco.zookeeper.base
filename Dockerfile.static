@@ -1,6 +1,6 @@
 ##### BEGIN image.base/Dockerfile/image-header #####
 FROM vcwebio/conteco.image.wrapper AS wrapper
-FROM vcwebio/conteco.external.zookeeper:6.0.0 AS base
+FROM vcwebio/conteco.controlplane.base AS base
 ##### END image.base/Dockerfile/image-header #####
 
 ##### BEGIN image.base/Dockerfile/conteco #####
@@ -16,7 +16,6 @@ COPY ./ /conteco/repo/
 
 ##### BEGIN image/Dockerfile/build-instructions #####
 ENV CONTECO_ENTRYPOINT "/etc/confluent/docker/run"
-COPY ./conteco/configs/etc/confluent/docker/* /etc/confluent/docker/
 ##### END image/Dockerfile/build-instructions #####
 
 ##### BEGIN image.base/Dockerfile/env-labels-footer #####
@@ -25,7 +24,7 @@ ENV CONTECO_REALM="vcwebio" \
     CONTECO_TYPE="zookeeper" \
     CONTECO_NAME="base" \
     CONTECO_TAG="6.0.0" \
-    CONTECO_BASE="external.zookeeper:6.0.0" \
+    CONTECO_BASE="controlplane.base" \
     CONTECO_BUILD="image-base"
 LABEL io.vcweb.schema-version="1.0" \
       io.vcweb.realm="vcwebio" \
@@ -33,7 +32,7 @@ LABEL io.vcweb.schema-version="1.0" \
       io.vcweb.type="zookeeper" \
       io.vcweb.name="base" \
       io.vcweb.tag="6.0.0" \
-      io.vcweb.base="external.zookeeper:6.0.0" \
+      io.vcweb.base="controlplane.base" \
       io.vcweb.build="image-base" \
       io.vcweb.label="zookeeper.base - ContEco" \
       io.vcweb.description="Confluent Zookeeper base image, using default configuration." \
